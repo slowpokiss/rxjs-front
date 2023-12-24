@@ -8,9 +8,9 @@ export default class Messages {
   }
 
   init() {
-    const numbers = interval(1000).pipe(take(4));
+    const numbers = interval(1000).pipe(take(7));
     const a = numbers.subscribe((x) => {
-      const obs$ = ajax.getJSON("http://localhost:3000/messages/unread").pipe(
+      const obs$ = ajax.getJSON("https://rxjs-back.onrender.com/messages/unread").pipe(
         catchError((error) => {
           console.log("error: ", error);
           return of(error);
